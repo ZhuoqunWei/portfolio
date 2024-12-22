@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Photography & Videos</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+   <!-- VIDEO BACKGROUND SECTION -->
+   <div class="video-background-container">
+    <video 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      class="video-background">
+      <source src="videos/bg-video.mp4" type="video/mp4">
+      <!-- Fallback text if the video fails to load -->
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <header class="site-header">
+    <div class="profile-container">
+      <img src="images/profile_pic.JPG" alt="Profile Picture" class="profile-pic">
+    </div>
+    <style>
+      h1 {text-align: center;}
+     
+      </style>
+    <div class="logo">
+      <h1>Maggie’s Gallery</h1>
+      
+
+      <div class="intro-text" style="text-align: left; margin: 2em 3em;">
+        <p>Hey! I’m Maggie Song, and welcome to my personal gallery. I love traveling and capturing photography along the way. Recently, I explored video art, which introduced me to the world of cinematics. Both photography and film have become important outlets for my creative expression, and I hope you can experience the color, tenderness, and variety I see through my lens. I will continue to update this portfolio, and I hope you enjoy the journey!</p>
+      </div>
+      
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li>
+          <a href="https://www.instagram.com/maggie_sooong/" target="_blank">
+            <img 
+              src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" 
+              alt="Instagram Icon" 
+              width="24" 
+              height="24"
+              style="vertical-align: middle;"
+            >
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+
+ 
+
+  </header>
+  
+
+
+  <main>
+    
+    <section class="intro">
+      <h1> Photography 📸</h1>
+    </section>
+
+    <section class="intro">
+      <h2>Vargas Plateau Regional Park</h2>
+      <p>During Thanksgiving break, it was a bit chilly in California</p>
+    </section>
+    
+
+    <div class="horizontal-scroll" id="photo-scroll">
+      <figure><img src="images/VP/VP1.jpeg" alt="Photo 1"></figure>
+      <figure><img src="images/VP/VP2.jpeg" alt="Photo 2"></figure>
+      <figure><img src="images/VP/VP3.jpeg" alt="Photo 3"></figure>
+      <figure><img src="images/VP/VP4.jpeg" alt="Photo 4"></figure>
+    </div>
+    
+    <section class="intro">
+      <h2>Shanghai</h2>
+      <p>Shanghai in a roll of film</p>
+    </section>
+
+    <div class="horizontal-scroll" id="photo-scroll">
+      <figure><img src="images/Shanghai/SH1.JPG" alt="Photo 1"></figure>
+      <figure><img src="images/Shanghai/SH2.JPG" alt="Photo 2"></figure>
+      <figure><img src="images/Shanghai/SH3.JPG" alt="Photo 3"></figure>
+
+      <!-- Add your new photos here -->
+      
+    </div>
+
+    <section class="intro">
+      <h2>Machu Picchu</h2>
+      <p>The Lost City</p>
+    </section>
+
+    <div class="horizontal-scroll" id="photo-scroll">
+      <figure><img src="images/MachuPicchu/MP1.JPG" alt="Photo 1"></figure>
+      <figure><img src="images/MachuPicchu/MP2.JPG" alt="Photo 2"></figure>
+      <figure><img src="images/MachuPicchu/MP3.JPG" alt="Photo 3"></figure>
+      <figure><img src="images/MachuPicchu/MP4.JPG" alt="Photo 4"></figure>
+    
+      <!-- Add your new photos here -->
+      
+    </div>
+    
+    <!-- <section class="intro">
+      <h2>Lima</h2>
+      <p>An introduction or short artist’s statement goes here. A minimal aesthetic sets the tone for the work below.</p>
+    </section>
+
+    <div class="horizontal-scroll" id="photo-scroll">
+      <figure><img src="images/Lima/Lima1.JPG" alt="Photo 1"></figure>
+    
+    </div> -->
+
+    <section class="intro">
+      <h2>Guilin</h2>
+      <p>It is often said that “Guilin’s scenery is the finest under heaven”</p>
+    </section>
+
+    <div class="horizontal-scroll" id="photo-scroll">
+      <figure><img src="images/Guilin/GL1.JPG" alt="Photo 1"></figure>
+      <figure><img src="images/Guilin/GL2.JPG" alt="Photo 2"></figure>
+      <figure><img src="images/Guilin/GL3.JPG" alt="Photo 3"></figure>
+      <figure><img src="images/Guilin/GL4.JPG" alt="Photo 4"></figure>
+    </div>
+   
+    
+
+    <section id="videos" class="gallery-section">
+      <h1>Videos 📹</h1>
+      <section class="intro">
+        <h2 style="text-align: left;">Determinism, Free Will, and Choices</h2>
+      </section>     
+      <div class="horizontal-scroll" id="video-scroll">
+   
+        <figure class="video-item">
+          <iframe src="https://www.youtube.com/embed/eXSu5Y4wNGs" frameborder="0" allowfullscreen></iframe>
+        </figure>
+ 
+        
+      </div>
+    </section>
+    
+    
+
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2024 Maggie Song</p>
+  </footer>
+  
+  <script src="scripts/main.js"></script>
+</body>
+</html>

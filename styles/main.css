@@ -1,0 +1,182 @@
+/* Import Neuton Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&display=swap');
+
+/* Apply Neuton throughout the site */
+body {
+  font-family: 'Neuton', serif;
+  margin: 0;
+  padding: 0;
+  color: #fffdec;       /* <-- Changed text color to #FFFDEC */
+  background: transparent; 
+  font-size: 25px; /* or 1.125rem */
+}
+
+/* Example: move h1 text-align center from inline <style> to CSS */
+h1, h2 {
+  text-align: center;
+}
+
+/* Example: remove margin from intro-text inline, place it here */
+.intro-text {
+  margin: 2em 3em;
+  text-align: left; 
+}
+
+/* If you want the subheading 'Determinism...' left-aligned, add a class */
+.intro h2 {
+  text-align: center; /* or inline style as you did */
+}
+
+
+
+
+
+/* Horizontal Scroll */
+.horizontal-scroll {
+  display: flex;
+  gap: 0.5em;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.1em 0;
+  scroll-behavior: smooth;
+  cursor: grab;
+}
+
+.horizontal-scroll.active {
+  cursor: grabbing;
+}
+
+/* Hide scrollbar (optional) */
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+.horizontal-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scroll Buttons (if you use them) */
+.scroll-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Photos / Videos */
+#photo-scroll figure img {
+  height: 200px; 
+  object-fit: cover;
+}
+
+#video-scroll figure iframe {
+  width: 300px;
+  height: 170px;
+}
+
+.horizontal-scroll figure {
+  will-change: transform;
+}
+
+.horizontal-scroll figure img {
+  transition: transform 0.5s ease-in-out;
+}
+
+.horizontal-scroll figure:hover img {
+  transform: scale(1.1);
+}
+
+/* SITE HEADER */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  margin-bottom: 4em;
+}
+
+/* Logo Link */
+.logo a {
+  text-decoration: none;
+  color: #FFFDEC;      /* <-- Make sure your logo text also matches */
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* Navigation */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #FFFDEC;      /* <-- Nav links color */
+  font-size: 1em;
+  transition: color 0.3s ease-in-out;
+}
+
+.main-nav a:hover {
+  color: #cccccc;      /* <-- Slightly different color on hover */
+}
+
+/* Profile Picture Container */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin-top: 2.2em;   /* moves container down */
+  margin-left: 2em;  /* moves container right */
+
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Intro Sections */
+.intro {
+  margin-left: 30px;
+}
+
+
+
+/* Videos Section Spacing (adjust as needed) */
+#videos {
+  margin-top: 6em;
+}
+
+/* Video Background Container */
+.video-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* The Video Itself */
+.video-background {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 1em 0;
+  background-color: transparent; /* or remove entirely if you want the video visible */
+  margin-top: 2em;
+  color: #FFFDEC;                /* ensures footer text is also #FFFDEC */
+}
