@@ -180,3 +180,71 @@ h1, h2 {
   margin-top: 2em;
   color: #FFFDEC;                /* ensures footer text is also #FFFDEC */
 }
+
+/* Hide any caption references (if still in code) */
+/* .modal-caption { display: none; } */
+
+/* The modal container remains the same */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Large Image */
+.modal-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Close Button (X) */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 3em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Show the modal by adding .show */
+.modal.show {
+  display: flex;
+}
+
+/* Navigation Buttons (Prev / Next) */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #fff;
+  font-size: 2em;
+  border: none;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.modal-nav:hover {
+  opacity: 1;
+}
+
+.modal-prev {
+  left: 10px; /* place on the left side of the screen */
+}
+
+.modal-next {
+  right: 10px; /* place on the right side of the screen */
+}

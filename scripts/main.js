@@ -1,100 +1,75 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Photo Section
-    const photoScroll = document.getElementById('photo-scroll');
-    const scrollLeftBtn = document.getElementById('scroll-left');
-    const scrollRightBtn = document.getElementById('scroll-right');
+  // Modal Elements
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const closeBtn = document.querySelector('.modal-close');
   
-    scrollLeftBtn.addEventListener('click', () => {
-      photoScroll.scrollBy({
-        left: -300,
-        behavior: 'smooth'
-      });
-    });
-  
-    scrollRightBtn.addEventListener('click', () => {
-      photoScroll.scrollBy({
-        left: 300,
-        behavior: 'smooth'
-      });
-    });
-  
-    // Video Section
-    const videoScroll = document.getElementById('video-scroll');
-    const videoScrollLeftBtn = document.getElementById('video-scroll-left');
-    const videoScrollRightBtn = document.getElementById('video-scroll-right');
-  
-    videoScrollLeftBtn.addEventListener('click', () => {
-      videoScroll.scrollBy({
-        left: -300,
-        behavior: 'smooth'
-      });
-    });
-  
-    videoScrollRightBtn.addEventListener('click', () => {
-      videoScroll.scrollBy({
-        left: 300,
-        behavior: 'smooth'
-      });
-    });
-  
-    // Optional: Click-and-Drag for Photos
-    let isDown = false;
-    let startX;
-    let scrollLeftVal;
-  
-    photoScroll.addEventListener('mousedown', (e) => {
-      isDown = true;
-      photoScroll.classList.add('active');
-      startX = e.pageX - photoScroll.offsetLeft;
-      scrollLeftVal = photoScroll.scrollLeft;
-    });
-    
-    photoScroll.addEventListener('mouseleave', () => {
-      isDown = false;
-      photoScroll.classList.remove('active');
-    });
-    
-    photoScroll.addEventListener('mouseup', () => {
-      isDown = false;
-      photoScroll.classList.remove('active');
-    });
-    
-    photoScroll.addEventListener('mousemove', (e) => {
-      if(!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - photoScroll.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll speed multiplier
-      photoScroll.scrollLeft = scrollLeftVal - walk;
-    });
-  
-    // Optional: Click-and-Drag for Videos
-    let isDownVid = false;
-    let startXVid;
-    let scrollLeftValVid;
-  
-    videoScroll.addEventListener('mousedown', (e) => {
-      isDownVid = true;
-      videoScroll.classList.add('active');
-      startXVid = e.pageX - videoScroll.offsetLeft;
-      scrollLeftValVid = videoScroll.scrollLeft;
-    });
-    
-    videoScroll.addEventListener('mouseleave', () => {
-      isDownVid = false;
-      videoScroll.classList.remove('active');
-    });
-    
-    videoScroll.addEventListener('mouseup', () => {
-      isDownVid = false;
-      videoScroll.classList.remove('active');
-    });
-    
-    videoScroll.addEventListener('mousemove', (e) => {
-      if(!isDownVid) return;
-      e.preventDefault();
-      const x = e.pageX - videoScroll.offsetLeft;
-      const walk = (x - startXVid) * 2; // Scroll speed multiplier
-      videoScroll.scrollLeft = scrollLeftValVid - walk;
+  // Navigation Buttons
+  const prevBtn = document.querySelector('.modal-prev');
+  const nextBtn = document.querySelector('.modal-next');
+
+  // Thumbnails
+  const thumbnails = document.querySelectorAll('.thumbnail');
+
+  // Keep track of which photo is currently displayed
+  let currentIndex = 0;
+
+  // Helper function to update modal image
+  function showImage(index) {
+    // Wrap around if out of bounds
+    if (index < 0) {
+      index = thumbnails.length - 1; // jump to last
+    }
+    if (index >= thumbnails.length) {
+      index = 0; // jump to first
+    }
+    currentIndex = index;
+    modalImg.src = thumbnails[currentIndex].src;
+  }
+
+  // Open modal when a thumbnail is clicked
+  thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      currentIndex = index; // set current to clicked thumb
+      showImage(currentIndex);
+      // Show the modal
+      modal.classList.add('show');
     });
   });
-  
+
+  // Close modal
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('show');
+  });
+
+  // Close modal if clicking outside the image
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('show');
+    }
+  });
+
+  // Next / Prev Button Clicks
+  nextBtn.addEventListener('click', () => {
+    showImage(currentIndex + 1);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    showImage(currentIndex - 1);
+  });
+
+  // Keyboard Navigation
+  document.addEventListener('keydown', (e) => {
+    // Only if modal is open
+    if (!modal.classList.contains('show')) return;
+
+    if (e.key === 'ArrowRight') {
+      showImage(currentIndex + 1);
+    } else if (e.key === 'ArrowLeft') {
+      showImage(currentIndex - 1);
+    } else if (e.key === 'Escape') {
+      // Optional: close modal on Esc
+      modal.classList.remove('show');
+    }
+  });
+});
